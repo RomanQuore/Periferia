@@ -17,6 +17,11 @@ steps:
     cliProjectName: 'Ejemplo'
     cliSources: '.'
 - task: SonarCloudAnalyze@1
+- task: reportgenerator@5
+  inputs:
+    reports: 'coverage.xml'
+    targetdir: 'coveragereport'
+    sourcedirs: 'C:\Users\breinerpacheco\agent\_work\_tasks\SonarCloudAnalyze_ce096e50-6155-4de8-8800-4221aaeed4a1\1.32.0\sonar-scanner\conf\coverage.xml'
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
