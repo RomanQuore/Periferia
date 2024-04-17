@@ -30,3 +30,7 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
+- task: reportgenerator@5
+  inputs:
+    reports: 'coverage.xml'
+    targetdir: 'coveragereport'
