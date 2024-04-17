@@ -7,7 +7,7 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: ''
+    SonarCloud: 'Ejemplo1'
     organization: 'bpbreinerpacheco0621'
     scannerMode: 'CLI'
     configMode: 'manual'
