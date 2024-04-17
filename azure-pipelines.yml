@@ -1,4 +1,7 @@
-
+- task: reportgenerator@5
+  inputs:
+    reports: 'coverage.xml'
+    targetdir: 'coveragereport'
 
 trigger:
 - main
