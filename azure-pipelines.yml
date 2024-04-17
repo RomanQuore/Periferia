@@ -1,34 +1,27 @@
+
+
 trigger:
 - main
 
-pool:
-  vmImage: 'windows-latest'
+pool: Default
+  
 
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'Ejemplo1'
+    SonarCloud: ''
     organization: 'bpbreinerpacheco0621'
     scannerMode: 'CLI'
     configMode: 'manual'
     cliProjectKey: 'bpbreinerpacheco0621_Ejemplo'
     cliProjectName: 'Ejemplo'
     cliSources: '.'
-
-- script: |
-    # Ejecutar tus pruebas y generar el archivo coverage.xml
-    # Por ejemplo, si estás utilizando dotnet test:
-    dotnet test --collect:"XPlat Code Coverage"
-  displayName: 'Run tests and generate coverage'
-
+- task: SonarCloudAnalyze@1
 - task: reportgenerator@5
   inputs:
-    reports: '**\coverage.cobertura.xml'
+    reports: 'coverage.xml'
     targetdir: 'coveragereport'
-  displayName: 'Generate code coverage report'
-
-- task: SonarCloudAnalyze@1
-
+    sourcedirs: 'C:\Users\breinerpacheco\agent\_work\_tasks\SonarCloudAnalyze_ce096e50-6155-4de8-8800-4221aaeed4a1\1.32.0\sonar-scanner\conf\coverage.xml'
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
