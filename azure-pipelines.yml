@@ -7,13 +7,11 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'Ejemplo1'
-    organization: 'bpbreinerpacheco0621'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'bpbreinerpacheco0621_Ejemplo'
-    cliProjectName: 'Ejemplo'
-    cliSources: '.'
+    SonarCloud: 'Periferia'
+    organization: 'romanquore'
+    scannerMode: 'MSBuild'
+    projectKey: 'Periferia1'
+    projectName: 'Periferia'
 
 - script: |
     # Ejecutar tus pruebas y generar el archivo coverage.xml
@@ -32,11 +30,3 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'Periferia'
-    organization: 'romanquore'
-    scannerMode: 'MSBuild'
-    projectKey: 'Periferia1'
-    projectName: 'Periferia'
